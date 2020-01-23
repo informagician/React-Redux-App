@@ -1,4 +1,4 @@
-import { START,SUCCESS } from "../actions";
+import { START,SUCCESS,FAILURE } from "../actions";
 
 const initialState = () => {
     return {
@@ -20,6 +20,12 @@ export const reducer = (state=initialState, action) => {
                 ...state,
                 isLoading: false,
                 ticker: action.payload
+            }
+        case FAILURE:
+            return {
+                ...state,
+                isLoading: false,
+                error: action.payload
             }
         default:
             return state;
