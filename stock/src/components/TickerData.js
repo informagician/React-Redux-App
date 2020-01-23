@@ -4,7 +4,7 @@ const TickerData = props => {
 
 
     return (
-        <div>empty</div>
+        <div>{props.data.symbol}</div>
     )
 }
 

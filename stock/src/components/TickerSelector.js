@@ -1,9 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import TickerData from './TickerData';
+import { fetchActivity } from '../actions';
 
 const TickerSelector = props => {
-
+    let data = null;
+    if (props.ticker) {
+        data = props.ticker;
+    }
     return(
         <main>
         <label>Pick a ticker: 
@@ -15,7 +19,9 @@ const TickerSelector = props => {
             <option>PYPL</option>
             </select>      
         </label>
-        <TickerData data={props.ticker}/>
+        <button onClick={props.fetchActivity}>get</button>
+        <p>{props.isLoading}</p>
+        <TickerData data={data ? data : ''}/>
         </main>
     )
 }
@@ -28,4 +34,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {})(TickerSelector);
+export default connect(mapStateToProps, {fetchActivity})(TickerSelector);
