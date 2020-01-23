@@ -3,6 +3,10 @@ import axios from 'axios';
 export const START = 'START';
 export const SUCCESS = 'SUCCESS';
 
+// export const ticker = value => dispatch = {
+
+// }
+
 export const fetchActivity = () => dispatch => {
     dispatch({ type: START });
     axios

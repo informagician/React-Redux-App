@@ -8,18 +8,24 @@ const TickerSelector = props => {
     if (props.ticker) {
         data = props.ticker;
     }
+    const handleChange = e => {
+        console.log(e.target.value)
+        fetchActivity(e.target.value);
+    }
+    //onClick={props.fetchActivity(value)}
     return(
         <main>
         <label>Pick a ticker: 
-            <select>
-            <option>AAPL</option>
-            <option>GOOG</option>
-            <option>ENPH</option>
-            <option>TSLA</option>
-            <option>PYPL</option>
+            <select onChange={handleChange}>
+                <option>Choose a Ticker</option>
+                <option value="aapl">AAPL</option>
+                <option value="goog">GOOG</option>
+                <option value="enph">ENPH</option>
+                <option value="tsla">TSLA</option>
+                <option value="pypl">PYPL</option>
             </select>      
         </label>
-        <button onClick={props.fetchActivity}>get</button>
+        {/* <button onClick={props.fetchActivity}>get</button> */}
         <p>{props.isLoading}</p>
         <TickerData data={data ? data : ''}/>
         </main>
