@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 const TickerData = props => {
     let data = null;
+    let err = null;
     let sign = 0;
     if (props.ticker) {
         data = props.ticker;
@@ -11,6 +12,8 @@ const TickerData = props => {
         } else {
             sign = 'red';
         }
+    } else if (props.ticker === null && props.isLoading === false) {
+        err = props.error;
     }
     console.log(data)
     return (
@@ -23,7 +26,7 @@ const TickerData = props => {
             </main>
         ) : (
             <main>
-            <p>Pick a Ticker</p>
+            <p>{err ? 'Some Error Happened' : 'Pick a Stock'}</p>
             </main>
         )
     )

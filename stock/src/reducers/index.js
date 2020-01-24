@@ -24,6 +24,7 @@ export const reducer = (state=initialState, action) => {
         case FAILURE:
             return {
                 ...state,
+                ticker: null,
                 isLoading: false,
                 error: action.payload
             }
