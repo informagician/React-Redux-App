@@ -11,7 +11,7 @@ export const FAILURE = 'FAILURE';
 export const fetchActivity = () => dispatch => {
     dispatch({ type: START });
     axios
-    .get(`https://cloud.iexapis.com/stable/stock/aapld/quote?token=pk_303e1d3f9911419ab8feead828409575`)
+    .get(`https://cloud.iexapis.com/stable/stock/aapld/quote?token=`)
     .then(res => {
         dispatch({ type: SUCCESS, payload: res.data})
     })
